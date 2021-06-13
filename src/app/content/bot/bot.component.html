@@ -1,0 +1,23 @@
+<div class="curs" style="background: none; padding: 1%; overflow: hidden; height: 70vh">
+  <div>
+    <div style="display: grid">
+      <div class="question message ready" style="width:10ch;" id="loading">
+        <div class="loading">● ● ●</div>
+      </div>
+      <div id="all-content">
+        <div class="question message ready" id="first-quas">{{obj.hello}}</div>
+        <div name="first-question" #t  id="select" class="options">
+          <div class="option" (click)="changeCity('transfer', obj.transfer)">{{obj.transfer}}</div>
+          <div class="option" (click)="changeCity('mobile', obj.mobile)">{{obj.mobile}}</div>
+          <div class="option" (click)="changeCity('balans', obj.balans)">{{obj.balans}}</div>
+          <div class="option" (click)="changeCity('curs', obj.curs)">{{obj.curs}}</div>
+          <div class="option" (click)="changeCity('weather', obj.weather)">{{obj.weather}}</div>
+          <div class="option" (click)="changeCity('isday', obj.isday)">{{obj.isday}}</div>
+          <div class="option" (click)="changeCity('time', obj.time)">{{obj.time}}</div>
+        </div>
+        <div id="answers"></div>
+        <textarea id="input-text" placeholder="{{obj.input}}" (keypress)="inputValue($event)" [(ngModel)]="input"></textarea>
+      </div>
+    </div>
+  </div>
+</div>

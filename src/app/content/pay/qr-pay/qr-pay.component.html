@@ -1,0 +1,44 @@
+<div class="nav head">
+  <svg (click)="qrGenerate('home')" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+       class="bi bi-arrow-left-short icon back"
+       viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+          d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+  </svg>
+</div>
+<hr class="hr header-hr">
+
+<div class="container" style="width: 80%">
+  <h1 style="text-align: center; margin: 15px 0;">QR-scanner</h1>
+  <select style="width: 100%" [(ngModel)]="num" class="adding">
+    <option *ngFor="let item of cards" [ngValue]="item.num">{{item.num}}</option>
+  </select>
+  <div class="button" style="margin: 7% 0" (click)="qrGenerate('qr-generate')">
+    <a>{{'Generate a QR code for the transfer' | translate}}</a></div>
+  <div class="foot button small" style="margin: 5% 0; width: 100%; font-size: 130%; display: block; padding: 0 25%"
+       *ngIf="status == 1">{{'QR-code was not read' | translate}}</div>
+  <div class="foot button small" style="margin: 5% 0; width: 100%; font-size: 130%; display: block; padding: 0 25%"
+       *ngIf="status == 2">{{'Payment made successfully' | translate}}!
+  </div>
+  <div style="margin: 10%; height: 50vw">
+
+
+    <div style="text-align:center; margin-top: 10vh;">
+      <h5>{{text}}</h5>
+      <div class="example-1">
+        <div class="form-group">
+          <label class="label" style="position: absolute;  left: 25%;">
+            <i class="material-icons">attach_file</i>
+            <span class="title">Добавить файл</span>
+            <input type="file" #file name="file" id="file" (change)="preview(file.files)">
+          </label>
+        </div>
+      </div>
+
+      <ng2-qrcode-reader (result)="render($event)" [qrr-show]="showQRCode" [qrr-value]="value" [qrr-type]="elementType">
+      </ng2-qrcode-reader>
+      <br>
+      <div #result></div>
+    </div>
+  </div>
+</div>

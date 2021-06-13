@@ -1,0 +1,23 @@
+<div style="height: 100%;">
+  <div style="height: 5%">
+
+    <div class="nav" style="height: 100%">
+      <a [ngClass]="st ? 'active' : 'set'" (click)="st=true" style="padding: 1%;">{{ 'In card' | translate}}</a>
+      <a [ngClass]="!st ? 'active' : 'set'" (click)="st=false;" style="padding: 1%;">{{ 'In list' | translate}}</a>
+    </div>
+  </div>
+
+  <hr class="header-hr">
+
+  <div class="curs" style="background: none; overflow: hidden">
+
+    <div class="pr"  *ngIf="st">
+      <app-map></app-map>
+    </div>
+
+    <div class="pr"  *ngIf="!st">
+      <app-list-map></app-list-map>
+    </div>
+
+  </div>
+</div>

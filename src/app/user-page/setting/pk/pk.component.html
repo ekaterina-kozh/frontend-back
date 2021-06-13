@@ -1,0 +1,19 @@
+<h4>{{'Quick login methods' | translate}}</h4>
+<div class="cont">
+  <div style="display: flex">
+    <div class="component" style="margin-bottom: 20px">
+      <a>{{'Log in with a graphic key' | translate}}</a></div>
+    <label class="switch">
+      <input type="checkbox" [(ngModel)]="ch1" (change)="onChange('graf')">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <div style="display: flex">
+    <div class="component" ><a>{{'Login by PIN code' | translate}}</a></div>
+    <label class="switch">
+      <input type="checkbox" [(ngModel)]="ch2" (change)="onChange('pin')">
+      <span class="slider round"></span>
+    </label>
+  </div>
+</div>
+

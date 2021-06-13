@@ -1,0 +1,44 @@
+<div class="nav head">
+  <svg (click)="back()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left-short icon back"
+       viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+          d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+  </svg>
+</div>
+<hr class="hr header-hr">
+
+<div class="container" style="width: 80%">
+  <h1 style="text-align: center; margin: 15px 0;">{{'Mobile phone' | translate}}</h1>
+  <table style="width: 100%; margin-top: 10%;">
+    <tr>
+      <td>{{'Mobile phone' | translate}}</td>
+      <td style="display: flex">
+        <input maxlength="16" type="text" class="adding" [(ngModel)]="value1"
+               (keydown)="_keyUp1($event)" style="padding: 1% 10%;">
+        <a style="position: absolute;
+    padding: 1% 2%;">+</a>
+      </td>
+    </tr>
+    <tr>
+      <td>{{'Card number' | translate}}</td>
+      <td><select style="width: 100%" [(ngModel)]="selectedValue" class="adding">
+        <option *ngFor="let item of cards" [ngValue]="item.num">{{item.num}}</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>{{'Sum' | translate}}</td>
+      <td><input type="text" class="adding" placeholder="{{'Sum' | translate}}" [(ngModel)]="value3"
+                 (keydown)="_keyUp($event)"></td>
+    </tr>
+  </table>
+  <small *ngIf="err===1">{{'Please fill in all the fields' | translate}}</small>
+  <small *ngIf="err===3">*{{'Warring tr' | translate}}</small>
+  <div class="button" (click)="make()">
+    <a>{{'Perform an operation' | translate}}</a>
+  </div>
+</div>
+<div class="nav foot square-animation" *ngIf="err===2">
+  <div class="head comp1">
+    {{'The operation was successful' | translate}}
+  </div>
+</div>

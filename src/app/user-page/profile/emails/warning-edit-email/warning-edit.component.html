@@ -1,0 +1,15 @@
+<h4>{{ title }}</h4>
+<div class="cont">
+  <p> {{'Are you sure you want to edit' | translate}} {{element}}?</p>
+  <div style="display: flex;
+    justify-content: space-between;">
+    <div class="button" style="width: 150px; display: inline-block;" (click)="edit()">
+      <a class="change">{{'Save changes' | translate}}</a>
+    </div>
+    <div class="button" style="width: 150px; display: inline-block;" (click)="closeModal('warning-edit-email'); answer = false;">
+      <a class="change">{{'Cancel' | translate}}</a>
+    </div>
+  </div>
+</div>
+
+

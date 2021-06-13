@@ -1,0 +1,39 @@
+<div>
+  <select (change)="changeType($event)" class="adding">
+    <option [ngValue]="null" disabled selected>{{'Type procedure' | translate}}</option>
+    <option *ngFor="let item of types" [ngValue]="item.name" >{{item.name}}</option>
+    <option [ngValue]="'none'" (click)="changeCard('none')">{{'All' | translate}}</option>
+  </select>
+  <select style="float: right" (change)="changeCard($event)" class="adding">
+    <option [ngValue]="null" disabled selected>{{'Card number' | translate}}</option>
+    <option *ngFor="let item of cards" [ngValue]="item.num" (click)="changeCard(item.name)">{{item.num}}</option>
+    <option [ngValue]="'none'" (click)="changeCard('none')">{{'All' | translate}}</option>
+  </select>
+</div>
+
+<div style="overflow: auto;
+    height: 40vh;" id="table">
+  <h4 style="text-align: center; margin-bottom: 10px">{{'Account statement' | translate}}</h4>
+  <table style="width: 100%">
+    <thead>
+    <tr>
+      <td><b>{{'Type procedure' | translate}}</b></td>
+      <td><b>{{'Card number' | translate}}</b></td>
+      <td><b>{{'Date of the procedure' | translate}}</b></td>
+      <td><b>{{'Transaction amount' | translate}}</b></td>
+    </tr>
+    </thead>
+    <tbody *ngFor="let item of table_data">
+      <tr>
+        <td>{{item.type_pr}}</td>
+        <td>{{item.num_card}}</td>
+        <td>{{item.data_pr}}</td>
+        <td>{{item.sum}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="button" (click)="exportAsPDF('table')"><a>
+  {{'Save to pdf' | translate}}
+</a>
+</div>

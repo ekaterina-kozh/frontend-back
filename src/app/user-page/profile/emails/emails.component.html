@@ -1,0 +1,217 @@
+<div  style="padding: 15px">
+  <div *ngFor="let item of emails">
+    <p>
+      <a
+        (click)=clikElem(item)>{{item.email}}</a>
+      <a style="float: right" (click)="deleteEmail(item)">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+             class="bi bi-trash icon" viewBox="0 0 16 16">
+          <path
+            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+          <path fill-rule="evenodd"
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+        </svg>
+      </a>
+    </p>
+
+    <hr class="dashed">
+
+  </div>
+  <div class="button" (click)="openModal('add-email', ''); closeModal('custom-modal-3'); ">
+    <a>{{'Add' | translate}}</a>
+  </div>
+</div>
+
+<jw-modal id="add-email">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" (click)="closeModal('add-email');" class="icon" x="0px" y="0px"
+         viewBox="0 0 512.001 512.001" fill="currentColor" xml:space="preserve">
+<g>
+	<g>
+		<path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+			L284.286,256.002z"/>
+	</g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+</svg>
+  </div>
+  <emailsAdd (mes)="AddEmail($event)"></emailsAdd>
+</jw-modal>
+
+<jw-modal id="edit-email">
+  <div class="f-level">
+    <svg xmlns="http://www.w3.org/2000/svg" (click)="closeModal('edit-email');" class="icon" x="0px" y="0px"
+         viewBox="0 0 512.001 512.001" fill="currentColor" xml:space="preserve">
+<g>
+	<g>
+		<path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+			L284.286,256.002z"/>
+	</g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+</svg>
+  </div>
+  <app-emails-edit (mes)="EditEmail($event)" [index] = "id" [email]="email" [element2]="el"></app-emails-edit>
+</jw-modal>
+
+<jw-modal id="warning-delete-email">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" (click)="closeModal('warning-delete-phones');" class="icon" x="0px" y="0px"
+         viewBox="0 0 512.001 512.001" fill="currentColor" xml:space="preserve">
+<g>
+	<g>
+		<path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+			L284.286,256.002z"/>
+	</g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+</svg>
+  </div>
+  <app-warning-delete (mes)="answer($event)" [title]="title" [element]="element"></app-warning-delete>
+</jw-modal>
+
+<jw-modal id="alert-dialog-delete-email">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" (click)="closeModal('alert-dialog-delete-email');" class="icon" x="0px" y="0px"
+         viewBox="0 0 512.001 512.001" fill="currentColor" xml:space="preserve">
+<g>
+	<g>
+		<path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+			L284.286,256.002z"/>
+	</g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+</svg>
+  </div>
+  <div class="cont" style="margin-top: 10px">
+    <p>{{'Email was successfully deleted' | translate}}</p>
+  </div>
+</jw-modal>

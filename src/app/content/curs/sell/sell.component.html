@@ -1,0 +1,8 @@
+<div class="record vis_bestbusd" *ngFor="let item of sell">
+  <div class="converter-container__item-input-wrapper">
+    <span class="converter-container__item-currency-abbr"><b>{{item.abbr}}</b></span>
+    <input type="tel" inputmode="decimal" class="input_calc form-control form-input-sum bestb" [maxLength]="5"
+           [(ngModel)]="index !== item.index ? (item.sum * chos) : chos" (ngModelChange)="change($event, item.index)">
+  </div>
+  <div class="converter-container__item-currency-name">{{item.tr}}</div>
+</div>

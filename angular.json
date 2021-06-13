@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "0687a497-ac6a-427a-925c-24f13832f6a7"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -18,13 +21,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -61,7 +64,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "belWeb:build"
+            "browserTarget": "belWeb:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -87,7 +91,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "../node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           }
@@ -118,6 +123,11 @@
           }
         }
       }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
     }
   },
   "defaultProject": "belWeb"

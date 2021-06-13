@@ -1,0 +1,32 @@
+<div class="nav head">
+  <svg (click)="back()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left-short icon back"
+       viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+          d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+  </svg>
+</div>
+<hr class="hr header-hr">
+
+<div style="text-align: center">
+  <select (change)="changeType($event)" class="adding" style="width: 40vw">
+    <option [ngValue]="null" disabled selected>{{'Type procedure' | translate}}</option>
+    <option *ngFor="let item of types" [ngValue]="item.name">{{item.name}}</option>
+    <option [ngValue]="'none'">{{'All' | translate}}</option>
+  </select>
+
+  <div style="padding: 0 10%; overflow: scroll;
+    height: 80vh;">
+    <div *ngFor="let item of notif">
+      <div style="text-align: center; font-size: 90%; color: rgba(0, 0, 0, 0.5); margin-bottom: 2%">{{item.day}}</div>
+      <div class="card-com" style="width: 50vw">
+        <div style="display: flex">
+          <p style="width: 100%"><b>{{item.name}}</b></p>
+          <p style="font-size: 90%; color: rgba(0, 0, 0, 0.5);">{{item.time}}</p>
+        </div>
+        <p class="sum">{{item.sum}} BY</p>
+        <p>**** {{item.num.substr(-4)}}</p>
+        <p>{{'Balans: ' | translate}} {{item.balans}}</p>
+      </div>
+    </div>
+  </div>
+</div>

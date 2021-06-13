@@ -1,0 +1,59 @@
+<div class="curs" style="background: none; padding: 1%; overflow: hidden; height: 70vh">
+  <div style="margin-bottom: 3vh;justify-content: space-between;
+    display: flex;">
+    <select (change)="changeType($event)" style="width: auto; padding: 2%" class="adding">
+      <option [ngValue]="1">{{'offices' | translate}}</option>
+      <option [ngValue]="2">{{'atm' | translate}}</option>
+    </select>
+    <select (change)="changeSity($event)" style="width: auto; padding: 2%; float: right" class="adding">
+      <option *ngFor="let item of sities" [ngValue]="item.num" selected>{{item}}</option>
+    </select>
+  </div>
+  <div style="overflow: auto;
+    height: 50vh;">
+    <div *ngIf="st">
+      <h4 style="text-align: center; margin-bottom: 10px">{{'offices' | translate}}</h4>
+      <p><b>{{offices.des}}</b></p>
+      <p>{{'Time work'| translate}}: {{offices.time}}</p>
+      <p>{{'Tel work' | translate}}: {{offices.tel}}</p>
+      <table style="width: 100%; overflow: auto; height: 100%">
+        <thead>
+        <tr>
+          <td><b>{{'Name office' | translate}}</b></td>
+          <td><b>{{'Address' | translate}}</b></td>
+        </tr>
+        </thead>
+        <tbody >
+        <tr *ngFor="let item of offices.all">
+          <td style="text-align: left; width: 20%; padding: 2%">{{item.name}}</td>
+          <td style="text-align: left; width: 20%; padding: 2%">{{item.address}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <!--</div>-->
+    </div>
+    <div *ngIf="offices.length==0 && atm.length==0">
+      loading..
+    </div>
+    <div *ngIf="!st">
+      <h4 style="text-align: center; margin-bottom: 10px">{{'atm' | translate}}</h4>
+      <p>{{'Tel work' | translate}}: {{atm.tel}}</p>
+      <table style="width: 100%; overflow: auto; height: 100%">
+        <thead>
+        <tr>
+          <td><b>{{'Name atm' | translate}}</b></td>
+          <td><b>{{'Address' | translate}}</b></td>
+          <td><b>{{'Time work' | translate}}</b></td>
+        </tr>
+        </thead>
+        <tbody >
+        <tr *ngFor="let item of atm.all">
+          <td style="text-align: left; width: 20%; padding: 2%">{{item.name}}</td>
+          <td style="text-align: left; width: 20%; padding: 2%">{{item.address}}</td>
+          <td style="text-align: left; width: 20%; padding: 2%">{{item.time}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

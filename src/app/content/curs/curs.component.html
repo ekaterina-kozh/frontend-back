@@ -1,0 +1,23 @@
+<div style="height: 100%;">
+  <div style="height: 5%">
+
+    <div class="nav" style="height: 100%">
+      <a [ngClass]="st ? 'active' : 'set'" (click)="st=true" style="padding: 1%;">{{ 'Bank buy' | translate}}</a>
+      <a [ngClass]="!st ? 'active' : 'set'" (click)="st=false;" style="padding: 1%;">{{ 'Bank sell' | translate}}</a>
+    </div>
+  </div>
+
+  <hr class="header-hr">
+
+  <div class="curs">
+
+    <div class="pr"  *ngIf="st">
+      <app-buy [buy]="buy_v" ></app-buy>
+    </div>
+
+    <div class="pr"  *ngIf="!st">
+      <app-sell [sell]="sell_v"></app-sell>
+    </div>
+
+  </div>
+</div>

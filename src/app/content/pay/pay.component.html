@@ -1,0 +1,36 @@
+<div style="height: 100%;">
+  <div class="head-pay">
+    <h4>{{'Pays' | translate}}</h4>
+    <div style="display: flex">
+      <h5 style="margin-right: 2%" (click)="st=1">{{'My transactions' | translate}}</h5>
+      <h5 (click)="st=2">{{'Account statement' | translate}}</h5>
+    </div>
+    <div style="display: flex">
+      <div class="pay-com" style="margin-right: 2%" (click)="answer('qr')">
+        Оплата по QR-коду
+      </div>
+      <div *ngFor = "let item of history" style="margin-right: 2%">
+        <div class="pay-com" style="background: hsla(0,0%,100%,.7)" (click)="navigate(item.name)">
+         {{item.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pr" style="height: 55%; margin-top: 10%" *ngIf="st==1">
+
+    <div class="component" (click)="answer('tranfer/0')" style="text-align: center"><a>{{'Transfer' | translate}}</a>
+    </div>
+    <hr class="simple" style="height: 1px">
+    <div class="component" (click)="answer('erip')" style="text-align: center"><a>{{'ERIP' | translate}}</a></div>
+    <hr class="simple" style="height: 1px">
+    <div class="component" (click)="answer('free-payment')" style="text-align: center">
+      <a>{{'Free payment' | translate}}</a></div>
+    <hr class="simple" style="height: 1px">
+    <div class="component" (click)="answer('mobile-payment')" style="text-align: center">
+      <a>{{'Mobile payment' | translate}}</a></div>
+  </div>
+  <div class="pr" style="height: 55%; margin-top: 5%" *ngIf="st==2">
+    <app-ac-st>
+    </app-ac-st>
+  </div>
+</div>

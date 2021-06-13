@@ -1,0 +1,15 @@
+<div class="nav head">
+  <svg (click)="back()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left-short icon back"
+       viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+          d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+  </svg>
+</div>
+<hr class="hr header-hr">
+
+<div style="padding: 7% 15% 0 15%">
+  <h4>{{news.title}}</h4>
+  <textarea style="width: 100%">
+    {{ news.content}}
+  </textarea>
+</div>

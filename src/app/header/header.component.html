@@ -1,0 +1,22 @@
+<div class="nav head">
+  <div class="comp1">
+    <img src="../../assets/logo.png" class="banner"/>
+    <input type="search" placeholder="{{'searching' | translate}}.." [(ngModel)]="value" class="searching" list="cocktail" (keypress)="listen($event)">
+    <datalist id="cocktail">
+      <option (click)="answer('tranfer/0')">{{'Transfer' | translate}}</option>
+      <option (click)="answer('erip')" >{{'ERIP' | translate}}</option>
+      <option (click)="answer('free-payment')">{{'Free payment' | translate}}</option>
+      <option (click)="answer('mobile-payment')" >{{'Mobile payment' | translate}}</option>
+      <option *ngFor="let item of types">{{item.name}}</option>
+    </datalist>
+
+  </div>
+  <div class="comp2">
+    <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-person-fill icon" routerLink="/user" viewBox="0 0 16 16">
+      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bell-fill icon" viewBox="0 0 16 16" routerLink="/notif">
+      <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+    </svg>
+  </div>
+</div>

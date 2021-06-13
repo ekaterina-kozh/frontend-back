@@ -1,0 +1,40 @@
+<div class="nav head">
+  <svg (click)="back()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left-short icon back"
+       viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+          d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+  </svg>
+</div>
+<hr class="hr header-hr">
+
+
+<div class="container" style="width: 80%">
+  <div class="cont" style="margin-top: 10px; padding: 0 25%" id="qr-code-generate">
+    <ngx-qrcode
+      [elementType]="elementType"
+      [errorCorrectionLevel]="correctionLevel"
+      [value]="'transfer ' + 'pol ' + this.value2 + ' sum ' + this.value3"
+      cssClass="bshadow"></ngx-qrcode>
+  </div>
+  <table style="width: 100%;    margin: 3% 0;">
+    <tbody>
+    <tr>
+      <td>{{'Card number' | translate}}</td>
+      <td>
+        <input type="text" maxlength="19" class="adding" placeholder="0000 0000 0000 0000" [(ngModel)]="value2"
+               (keypress)="listen()">
+      </td>
+    </tr>
+    <tr>
+      <td>{{'Sum' | translate}}</td>
+      <td><input type="text" class="adding" placeholder="{{'Sum' | translate}}" [(ngModel)]="value3"
+                 (keydown)="_keyUp($event)"></td>
+    </tr>
+    </tbody>
+  </table>
+  <canvas id="canvas" width="5" height="5"> Hi, <br> Pes</canvas>
+
+  <div class="button" (click)="generateQR()">
+    <a>{{'Save' | translate}}</a>
+  </div>
+</div>

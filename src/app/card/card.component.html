@@ -1,0 +1,171 @@
+<div class="nav head">
+  <svg (click)="back()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left-short icon back"
+       viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+          d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+  </svg>
+</div>
+<hr class="hr header-hr">
+
+<div>
+  <div style="padding: 7% 25% 0 25%">
+    <div class="card" style="width: 110%;">
+      <div style="display: flex">
+        <div>
+          <p style="width: 100%">{{sum}} BY</p>
+          <p>{{type}}</p>
+          <p style="white-space: nowrap;">{{num}}</p>
+        </div>
+        <svg *ngIf="active == 'active'" viewBox="0 0 512 512" fill="currentColor" class="icon" style="color: white;
+    width: 20%;
+    height: 20%;
+    margin: 0; margin-left: 50px;" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m369.164062 174.769531c7.8125 7.8125 7.8125 20.476563 0 28.285157l-134.171874 134.175781c-7.8125 7.808593-20.472657 7.808593-28.285157 0l-63.871093-63.875c-7.8125-7.808594-7.8125-20.472657 0-28.28125 7.808593-7.8125 20.472656-7.8125 28.28125 0l49.730468 49.730469 120.03125-120.035157c7.8125-7.808593 20.476563-7.808593 28.285156 0zm142.835938 81.230469c0 141.503906-114.515625 256-256 256-141.503906 0-256-114.515625-256-256 0-141.503906 114.515625-256 256-256 141.503906 0 256 114.515625 256 256zm-40 0c0-119.394531-96.621094-216-216-216-119.394531 0-216 96.621094-216 216 0 119.394531 96.621094 216 216 216 119.394531 0 216-96.621094 216-216zm0 0"/>
+        </svg>
+        <svg *ngIf="active == 'block'" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon" style="color: white;
+    width: 20%;
+    height: 20%;
+    margin: 0; margin-left: 50px;"
+             viewBox="0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<path d="M256,0C114.508,0,0,114.497,0,256c0,141.493,114.497,256,256,256c141.492,0,256-114.497,256-256
+			C512,114.507,397.503,0,256,0z M256,472c-119.384,0-216-96.607-216-216c0-119.385,96.607-216,216-216
+			c119.384,0,216,96.607,216,216C472,375.385,375.393,472,256,472z"/>
+	</g>
+</g>
+          <g>
+	<g>
+		<path d="M343.586,315.302L284.284,256l59.302-59.302c7.81-7.81,7.811-20.473,0.001-28.284c-7.812-7.811-20.475-7.81-28.284,0
+			L256,227.716l-59.303-59.302c-7.809-7.811-20.474-7.811-28.284,0c-7.81,7.811-7.81,20.474,0.001,28.284L227.716,256
+			l-59.302,59.302c-7.811,7.811-7.812,20.474-0.001,28.284c7.813,7.812,20.476,7.809,28.284,0L256,284.284l59.303,59.302
+			c7.808,7.81,20.473,7.811,28.284,0C351.398,335.775,351.397,323.112,343.586,315.302z"/>
+	</g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+          <g>
+</g>
+</svg>
+      </div>
+
+      <div style="display: flex">
+        <div style="width: 100%">
+          {{'Validity period' | translate}}
+          <p>{{period}}</p>
+        </div>
+        <img src="{{photo}}" alt="photo" style="width: 30%;"/>
+      </div>
+    </div>
+  </div>
+  <div>
+    <hr class="hr footer-hr" style="margin: 7% 0">
+    <div style="padding: 0 10%">
+      <div class="card-com" (click)="popol()">
+        {{'Top up' | translate}}
+      </div>
+      <div class="card-com" (click)="stat()">
+        {{'Statement for the period' | translate}}
+      </div>
+
+      <div class="foot button small" style="margin: 5% 0; width: 100%; font-size: 130%; display: block; padding: 0 25%"
+           *ngIf="status">{{'Card block' | translate}}</div>
+      <div class="nav foot button" style="margin: 5% 0; width: 80%;" (click)="blockCard()">
+        <a>{{'Block the card' | translate}}</a></div>
+    </div>
+  </div>
+</div>
+
+
+<jw-modal id="card-alert">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" (click)="closeModal('card-alert');" class="icon" x="0px" y="0px"
+         viewBox="0 0 512.001 512.001" fill="currentColor" xml:space="preserve">
+<g>
+	<g>
+		<path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+			L284.286,256.002z"/>
+	</g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+</svg>
+  </div>
+  <div *ngIf="active == 'active'">
+    <div style="margin: 5% 0">
+      {{'Are you sure to bock this credit card' | translate}}?
+    </div>
+    <div style="display: flex;
+    justify-content: space-between;">
+      <div class="button" style="width: 150px;" (click)="trueAnswer()">
+        <a>{{'Yes' | translate}}</a>
+      </div>
+      <div class="button" style="width: 150px;" (click)="closeModal('card-alert');">
+        <a>{{'Cancel' | translate}}</a>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="active == 'block'">
+    <div style="margin: 5% 0">
+      {{'Card block' | translate}}
+    </div>
+  </div>
+</jw-modal>

@@ -1,0 +1,123 @@
+<div class="nav head">
+  <svg (click)="back()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left-short icon back"
+       viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+          d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+  </svg>
+</div>
+<hr class="hr header-hr">
+
+<div >
+  <div style="padding: 7% 25% 0 25%">
+    <h4>{{'Information about the operation using the card' | translate}}</h4>
+    <div style="display: flex; margin-top: 10%">
+      <div class="icon-area" id="year" (click)="changeType('year')">{{'year' | translate}}</div>
+      <div class="icon-area" id="quater" (click)="changeType('quater')">{{'quater' | translate}}</div>
+      <div class="icon-area active-area" id="mount" (click)="changeType('mount')">{{'mount' | translate}}</div>
+    </div>
+  </div>
+  <div>
+    <div style="padding: 5% 10%">
+      <h5>{{'Date st' | translate}}</h5>
+      <div style="display: flex;  margin: 10% 0">
+        <div style="width: 100%;"><p style="width: 25vw; text-align: center;">{{'Data s' | translate}}</p>
+          <input type="date"  value="{{choosedata}}" class="adding" style="width: 25vw; text-align: end;"/>
+          <!--<input type="text" >-->
+        </div>
+        <div><p style="width: 25vw; text-align: center;">{{'Data po' | translate}}</p>
+          <input type="date" value="{{data}}" class="adding" style="width: 25vw; text-align: end;"/>
+        </div>
+      </div>
+      <h5>{{'Lang st' | translate}}</h5>
+      <div style="display: flex; margin: 5% 0 0 0">
+        <div style="width: 100%; display: flex" >
+          <p id='ru' style="width: 25vw; text-align: center; padding: 2%" class="icon-area active-area" (click)="chooseLang('ru')">Русский</p>
+        </div>
+        <div  style="display: flex" >
+          <p id='en' style="width: 25vw; text-align: center; padding: 2%" class="icon-area" (click)="chooseLang('en')">English</p>
+        </div>
+      </div>
+      <div class="foot button small" style="margin: 5% 0; width: 100%; font-size: 130%; display: block; padding: 0 25%" *ngIf="status">{{'Data generated' | translate}}!</div>
+      <div class="nav foot button" style="margin: 15% 0; width: 80%;" (click)="makeAct()"><a>{{'Create a statement' | translate}}</a></div>
+      <div class="nav foot button" style="margin: 5% 0; width: 80%;" (click)="Export2Word('exportContent', 'word-content')"><a>{{'Save to pdf' | translate}}</a></div>
+    </div>
+  </div>
+</div>
+
+<div id="exportContent">
+  <table class="header-table">
+    <tbody>
+    <tr>
+      <td>{{langArray.header0}}</td>
+      <td rowspan="5" style="text-align:right;">
+        <img src="https://www.belveb24.by/imobile/images/new_bank_logo.svg" />
+      </td>
+    </tr>
+    <tr>
+      <td>{{langArray.bankCode}}BELBBY2X</td>
+    </tr>
+    <tr>
+      <td>{{langArray.header1}}</td>
+    </tr>
+    <tr>
+      <td>{{langArray.header2}}</td>
+    </tr>
+    <tr>
+      <td>{{langArray.header3}}</td>
+    </tr>
+    <tr>
+      <th colspan="2" style="text-align:center; padding-top: 30px; padding-bottom: 30px;">{{langArray.title}}</th>
+    </tr>
+    <tr>
+      <td>{{langArray.fullName}}:</td>
+      <td>{{langArray.name}}</td>
+    </tr>
+    <tr>
+      <td>{{langArray.contract}}:</td>
+      <td>
+        {{langArray.contractNumber}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{langArray.period}}:
+      </td>
+      <td>{{langArray.from}} {{choosedata}} {{langArray.to}} {{data}}</td>
+    </tr>
+    <tr>
+      <td>{{langArray.contractCurrency}}:</td>
+      <td>{{langArray.BYN}}</td>
+    </tr>
+    <tr>
+      <td>{{langArray.reportDate}}:</td>
+      <td>{{data}}</td>
+    </tr>
+    <tr>
+      <td>{{langArray.balance}}:</td>
+      <td>{{langArray.sum}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+<!--Основная таблица с операциями-->
+<div>
+  <table class="report-table">
+    <thead>
+    <tr>
+      <th>{{langArray.operationDate}}</th>
+      <th>{{langArray.detalization}}</th>
+      <th>{{langArray.currency}}</th>
+      <th>{{langArray.amount}}</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let item of alldata">
+    <tr>
+      <td>{{item.data_pr}}</td>
+      <td>{{item.name}}</td>
+      <td>BY</td>
+      <td>{{item.sum}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>

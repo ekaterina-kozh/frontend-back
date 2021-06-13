@@ -1,0 +1,186 @@
+<div class="component">
+  <h5>{{'Personal Data' | translate}}</h5>
+  {{'FIO' | translate}}<br>
+  {{'Documents' | translate}}<br>
+  <div><a class="link" (click)="openModal('custom-modal-1')">{{'Show All' | translate}}</a></div>
+</div>
+
+<hr class="simple">
+
+<div class="component">
+  <div><h5>{{'Phone Numbers' | translate}}</h5>
+    <svg viewBox="0 0 16 16" class="bi bi-plus icon" style="float: right" (click)="openModal('add-phone')"
+         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+      <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+    </svg>
+  </div>
+  <div>
+    <div>
+      {{phones}}
+      <div><br><a class="link" (click)="openModal('custom-modal-2')">{{'Show All' | translate}}</a></div>
+    </div>
+  </div>
+</div>
+
+<hr class="simple">
+
+<div class="component">
+  <h5>{{'Email' | translate}}</h5>
+
+  <svg viewBox="0 0 16 16" class="bi bi-plus icon" style="float: right" (click)="openModal('add-email')"
+       fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+    <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+  </svg>
+
+  <div>
+    <div>
+      {{emails}}
+      <div><br><a class="link" (click)="openModal('custom-modal-3')">{{'Show All' | translate}}</a></div>
+    </div>
+  </div>
+</div>
+
+<jw-modal id="custom-modal-1">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" (click)="closeModal('custom-modal-1');" class="icon" x="0px" y="0px"
+         viewBox="0 0 512.001 512.001" fill="currentColor" xml:space="preserve">
+<g>
+	<g>
+		<path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+			L284.286,256.002z"/>
+	</g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+</svg>
+  </div>
+  <app-pers-date></app-pers-date></jw-modal>
+
+<jw-modal id="custom-modal-2">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" (click)="closeModal('custom-modal-2');" class="icon" x="0px" y="0px"
+         viewBox="0 0 512.001 512.001" fill="currentColor" xml:space="preserve">
+<g>
+	<g>
+		<path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+			L284.286,256.002z"/>
+	</g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+</svg>
+  </div>
+  <app-phones (get_phones)="phones_get($event)"></app-phones></jw-modal>
+
+<jw-modal id="custom-modal-3">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" (click)="closeModal('custom-modal-3');" class="icon" x="0px" y="0px"
+         viewBox="0 0 512.001 512.001" fill="currentColor" xml:space="preserve">
+<g>
+	<g>
+		<path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+			L284.286,256.002z"/>
+	</g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+      <g>
+</g>
+</svg>
+  </div>
+  <app-emails (get_emails)="emails_get($event)"></app-emails></jw-modal>
+
+
